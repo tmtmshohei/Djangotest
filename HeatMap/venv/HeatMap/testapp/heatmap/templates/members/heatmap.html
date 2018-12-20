@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Heatmap</title>
+  <link rel="stylesheet" href="{% static 'css/heatmap.css' %}">
+  <script src="{% static 'js/heatmap.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+</head>
+<body>
+  <div class="wrapper">
+   <h2>Demo</h2>
+   <div class="forms">
+     <form action="" method="POST">
+         {% csrf_token %}
+         開始日時　<input type="datetime-local" name="startdatetime" required >
+
+         終了日時　<input type="datetime-local" name="enddatetime" required ><input type="submit" value="更新" name="button_1"/>
+         <input type="button" onclick="location.href='./gaze_visualization'" value="視線の可視化へ">
+     </form>
+
+   </div>
+
+    <div class="demo-wrapper">
+      <div id="drawheatmap"　class="heatmap" >
+         <img src="{% static 'images/sample02.png' %}" alt=""  style="width:500px; height:700px; ">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="{% static 'js/draw-heatmap.js' %}"></script>
+</body>
+</html>
